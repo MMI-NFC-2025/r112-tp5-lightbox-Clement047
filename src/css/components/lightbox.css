@@ -1,3 +1,81 @@
 /**
 * Lightbox
 */
+/* Reset rapide, optionnel */
+* {
+    box-sizing: border-box;
+}
+
+/* Miniatures juste pour le TP */
+.thumbs {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.thumbs img {
+    width: 120px;
+    height: 80px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.thumbs img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* LIGHTBOX = dialog */
+
+#lightbox {
+    border: none;
+    /* Pas de bordure moche par défaut */
+    padding: 0;
+    background: transparent;
+    /* On gère le fond avec l’image elle-même */
+}
+
+/* Quand le dialog est ouvert, on centre le contenu */
+#lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Image en grand dans la lightbox */
+#lightbox img {
+    max-width: 90vw;
+    /* Ne jamais dépasser la fenêtre */
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Fond derrière le dialog (overlay sombre) */
+#lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
+#lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+}
+
+#lightbox[open] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.7);
+}
+
+#lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+}
